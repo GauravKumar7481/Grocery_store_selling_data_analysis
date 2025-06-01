@@ -11,13 +11,10 @@ This project provides a SQL-based analysis of a small Kirana (retail) store's sa
 
 ## 🧱 Database Schema Overview
 
-### `products`
-- `Product_ID` (PK)
-- `Product_Name`
 
 ### `product_selling`
 - `Date`
-- `Product_ID` (FK)
+- `Product_ID` (PK)
 - `Units_Sold`
 - `Unit_Price`
 - `Cost_Price`
