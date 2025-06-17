@@ -1,0 +1,42 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Sample product_selling data
+product_data = {
+    'Product_Name': ['Onion', 'Potato', 'Wheat Floor', 'Rice', 'Moong Dal', 'Arhar Dal', 'Soap', 
+                     'ParleG Biscuit', 'Cream Biscuit', 'Fortune Oil', 'Nihar Hair Oil', 'Fortune Refine',
+                     'Kurkure_1', 'Kurkure_2', 'Chips_1', 'Chips_2', 'Kabli Chana', 'Coca Cola', 
+                     'Soyabean', 'Bikaji Papad', 'Oyes'],
+    'Units_Sold': [9, 4, 5, 1, 0, 1, 1, 10, 4, 7, 4, 7, 8, 10, 10, 5, 1, 17, 2, 7, 14],
+    'Unit_Price': [825, 519.5, 289, 825, 985.8, 750, 25, 10, 10, 58.8, 20, 98, 10, 5, 10, 20, 455.5, 44, 358, 51, 10]
+}
+
+df_product = pd.DataFrame(product_data)
+df_product['Revenue'] = df_product['Units_Sold'] * df_product['Unit_Price']
+
+# Sample customer payment data
+customer_data = {
+    'Payment': ['Online', 'Cash', 'EMI', 'Cash', 'Online', 'Cash', 'Cash', 'Online', 'Cash']
+}
+
+df_customer = pd.DataFrame(customer_data)
+
+# ----------------- BAR CHART: Revenue by Product -----------------
+plt.figure(figsize=(12, 6))
+df_product_sorted = df_product.sort_values(by='Revenue', ascending=False)
+plt.bar(df_product_sorted['Product_Name'], df_product_sorted['Revenue'], color='teal')
+plt.xticks(rotation=45, ha='right')
+plt.title('Total Revenue by Product')
+plt.xlabel('Product Name')
+plt.ylabel('Revenue (₹)')
+plt.tight_layout()
+plt.show()
+
+# ----------------- PIE CHART: Payment Method Distribution -----------------
+payment_counts = df_customer['Payment'].value_counts()
+
+plt.figure(figsize=(6, 6))
+plt.pie(payment_counts, labels=payment_counts.index, autopct='%1.1f%%', startangle=140, colors=['gold', 'lightcoral', 'skyblue'])
+plt.title('Customer Payment Method Distribution')
+plt.axis('equal')  # Equal aspect ratio makes the pie chart circular.
+plt.show()
