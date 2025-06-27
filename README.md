@@ -1,6 +1,6 @@
 # 🛒 Kirana Store Data Analysis
 
-This project provides a SQL-based analysis of a small Kirana (retail) store's sales and customer data. It includes a normalized database schema, sample data, and insightful queries to explore daily transactions, revenue, profitability, and customer behavior.
+This project provides a SQL and python-based analysis of a small Kirana (retail) store's sales and customer data. It includes a normalized database schema, sample data, and insightful queries to explore daily transactions, revenue, profitability, and customer behavior.
 
 ---
 
@@ -95,5 +95,5 @@ This project provides a SQL-based analysis of a small Kirana (retail) store's sa
 
 ---
 
-
+Through python bar chart and pie chart are drawn..
 
